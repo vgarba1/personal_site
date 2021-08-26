@@ -15,7 +15,7 @@ export const Background = () => {
 
   const startAddDots = () => {
     setTimeout(() => {
-      setDots((currentDots) => [...(currentDots.slice(0, 4000)), initDot()]);
+      setDots((currentDots) => [...(currentDots.slice(0, 3500)), initDot()]);
       startAddDots();
     }, Math.floor(Math.random() * 400));
   };
@@ -23,9 +23,9 @@ export const Background = () => {
   const removeDot = (dotToRemove: IDot) => {
     setDots(dots.filter(dot => dot !== dotToRemove));
     setDotsRemoved(dotsRemoved + 1);
-    if (dotsRemoved >= 20) {
+    if (dotsRemoved >= 20 && size < 40) {
       setDotsRemoved(0)
-      setSize(size + 2)
+      setSize(size + 1)
     }
   }
 
